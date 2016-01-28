@@ -1,4 +1,4 @@
-* grequire
+.h1 grequire
 
 ** welcome to use this super require module.
 
@@ -54,7 +54,7 @@
     reqlist.push({'better-require': 'better-require'});
 ```
 *** this module is ideal for dev dependency or small projects
-* Use it after you understand what it does, please.
+**** Use it after you understand what it does, please.
 
 
 ** change log
