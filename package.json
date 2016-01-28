@@ -1,0 +1,10 @@
+{
+    "name": "grequire",
+    "version": "0.1.0",
+    "main":"lib.js",
+    "dependencies":{
+    },
+    "scripts":{
+        "test":"mocha"
+    }
+}
