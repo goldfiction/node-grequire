@@ -1,21 +1,21 @@
 * grequire
 ** welcome to use this super require module.
 *** requireFolder
-/*
+```javascript
     // include files in a folder
     // i.e. you can include *.json in /data folder by calling includeFolder("/data","json")
     // this will return an array [{"jsonFileName1":{json object}},...]
     exports.includeFolder = includeFolder;
-*/
+```
 *** requireArray
-/*
+```javascript
     // require an array of string or array of key-value pairs to global space
     // string will make both name and value the same
     // key-value pair allow name of the global object different from name of module
     exports.smartRequire = smartRequire;
-*/
+```
 *** initialize a basic set of modules to global space
-/*
+```javascript
     current smart require list include following
 
     reqlist.push({'require-json': ''});
@@ -50,7 +50,7 @@
     reqlist.push({'connect': 'connect'});
     reqlist.push({'passport': 'passport'});
     reqlist.push({'better-require': 'better-require'});
-*/
+```
 *** this module is ideal for dev dependency or small projects
 * Use it after you understand what it does, please.
 
