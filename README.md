@@ -1,21 +1,21 @@
 * grequire
 ** welcome to use this super require module.
 *** requireFolder
-
+/*
     // include files in a folder
     // i.e. you can include *.json in /data folder by calling includeFolder("/data","json")
     // this will return an array [{"jsonFileName1":{json object}},...]
     exports.includeFolder = includeFolder;
-
+*/
 *** requireArray
-
+/*
     // require an array of string or array of key-value pairs to global space
     // string will make both name and value the same
     // key-value pair allow name of the global object different from name of module
     exports.smartRequire = smartRequire;
-
+*/
 *** initialize a basic set of modules to global space
-
+/*
     current smart require list include following
 
     reqlist.push({'require-json': ''});
@@ -50,28 +50,27 @@
     reqlist.push({'connect': 'connect'});
     reqlist.push({'passport': 'passport'});
     reqlist.push({'better-require': 'better-require'});
-
+*/
 *** this module is ideal for dev dependency or small projects
-Use it after you understand what it does, please.
+* Use it after you understand what it does, please.
 
 
 ** change log
 
 *** 0.1.0
-
-*** major refactor
-*** kept the ability to load basic modules
-*** removed global include
-*** added requireFolder
-*** added requireArray
-*** removed dependency to require-xml
-*** removed dependency to require-ini
-*** removed dependency to require-yaml
-*** removed dependency to require-json
-*** removed dependency to require-csv
-*** added smart load for require-xml
-*** added smart load for require-ini
-*** added smart load for require-yaml
-*** added smart load for require-json
-*** added smart load for require-csv
-*** requireArray now allows array of string or array of key-value pair objects
+* major refactor
+* kept the ability to load basic modules
+* removed global include
+* added requireFolder
+* added requireArray
+* removed dependency to require-xml
+* removed dependency to require-ini
+* removed dependency to require-yaml
+* removed dependency to require-json
+* removed dependency to require-csv
+* added smart load for require-xml
+* added smart load for require-ini
+* added smart load for require-yaml
+* added smart load for require-json
+* added smart load for require-csv
+* requireArray now allows array of string or array of key-value pair objects
