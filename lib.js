@@ -25,7 +25,7 @@ function includeFolder(folder, ext) {
             try {
                 ret[fileName] = require(folder + '/' + file);
             } catch (err) {
-                sys.puts(err);
+                console.error(err);
             }
         }
     }
@@ -45,7 +45,7 @@ function globalRequire(name, value) {
         if (temp) {
             if (!global[name]) {
                 global[name] = temp;
-                util.debug('loaded module: '+value);
+                console.debug('loaded module: '+value);
             }
         }
     } catch (e) {
@@ -91,7 +91,7 @@ function requireList() {
     reqlist.push({'require-xml': ''});
 
     reqlist.push({'fs': ''});
-    reqlist.push({'sys': ''});
+    //reqlist.push({'sys': ''});
     reqlist.push({'S': 'string'});
 
     reqlist.push({'_': 'lodash'});
@@ -117,9 +117,9 @@ function requireList() {
     reqlist.push({'passport': 'passport'});
     reqlist.push({'better-require': 'better-require'});
 
-    var util=require("util");
-    util.debug('Requiring modules using grequire...');
-    util.debug('----');
+    //var util=require("util");
+    console.debug('Requiring modules using grequire...');
+    console.debug('----');
 
     smartRequire(reqlist);
 }

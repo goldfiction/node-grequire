@@ -9,7 +9,7 @@ it('should be able to require grequire module',function(done){
 
 it('should be able to require ini',function(done){
     var shouldbe={ a: { b: 'c' } };
-    var test=require('./test.ini')
+    var test=require(__dirname+'/test.ini')
     //console.log(test)
     //console.log(JSON.stringify(test) == JSON.stringify(shouldbe))
     assert.equal(JSON.stringify(test) == JSON.stringify(shouldbe),true);
