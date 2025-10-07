@@ -1,16 +1,13 @@
 {
     "name": "node-grequire",
     "version": "0.1.2",
-    "main": "lib.js",
-    "license": "MIT",
-    "repository": "git@github.com:goldfiction/node-grequire.git",
-    "dependencies": {
+    "main":"lib.js",
+    "license":"MIT",
+    "repository":"git@github.com:goldfiction/node-grequire.git",
+    "dependencies":{
+        "require-ini":""
     },
-    "scripts": {
-        "test": "npm install require-ini && mocha"
-    },
-    "versionHistory": {
-        "0.1.2": "fixed false alarm warnings by removing util.debug and sys module",
-        "0.1.1": "basically working"
+    "scripts":{
+        "test":"mocha"
     }
 }

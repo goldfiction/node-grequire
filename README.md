@@ -27,7 +27,7 @@
     reqlist.push({'require-xml': ''});
 
     reqlist.push({'fs': ''});
-    reqlist.push({'sys': ''});
+    //reqlist.push({'sys': ''});
     reqlist.push({'S': 'string'});
 
     reqlist.push({'_': 'lodash'});
@@ -65,7 +65,7 @@
 * removed global include
 * added requireFolder
 * added requireArray
-* removed dependency to require-xml  // the reason these dependencies are removed is because they are too large. install individual require modules by including them in project package.json. if the module is missing, they won't cause error, instead will silent skip
+* removed dependency to require-xml
 * removed dependency to require-ini
 * removed dependency to require-yaml
 * removed dependency to require-json
