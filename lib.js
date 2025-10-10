@@ -1,4 +1,6 @@
 rfr=require("rfr")
+util=require("util")
+debuglog=util.debuglog('grequire')
 rfr.setRoot(__dirname+"/../../");
 
 function includeFolder(folder, ext) {
@@ -42,17 +44,28 @@ function includeFolder(folder, ext) {
 
 function globalRequire(name, value) {
     try {
+        if(value.trim().length===0)
+          value=name;
         value = value || name;
-        var temp = rfr("node_modules/"+value);
+        var temp1=null;
+        var temp2=null;
+        try{
+            temp1=rfr("node_modules/"+value);
+        }catch(e){
+            try{
+                temp2=require(value);
+            }catch(e){}    
+        }
+        var temp=temp1||temp2;
         //console.log(name + ":" + !!temp)
         if (temp) {
-            if (!global[name]) {
+            if (!!!global[name]) {
                 global[name] = temp;
-                util.debug('loaded module: '+value);
+                console.log('loaded module: '+value);
             }
         }
     } catch (e) {
-        //console.log(e);
+        console.log(e);
     }
 }
 
@@ -71,7 +84,7 @@ function smartRequire(reqlist) {
             }
             else {
                 for (name in reqlist[i]) {
-                    value = reqlist[i][value]||reqlist[i][name];
+                    value = reqlist[i][name];
                     globalRequire(name, value);
                 }
             }
@@ -93,7 +106,7 @@ function requireList() {
     reqlist.push({'require-ini': ''});
     reqlist.push({'require-xml': ''});
 
-    reqlist.push({'fs': ''});
+    reqlist.push({'fs': 'fs'});
     reqlist.push({'sys': 'util'});
     reqlist.push({'S': 'string'});
 
@@ -120,11 +133,10 @@ function requireList() {
     reqlist.push({'passport': 'passport'});
     reqlist.push({'better-require': 'better-require'});
 
-    var util=require("util");
-    util.debug('Requiring modules using grequire...');
-    util.debug('----');
-
+    console.log('Requiring modules using grequire...');
+    console.log('----');
     smartRequire(reqlist);
+    console.log('----');
 }
 
 // include files in a folder

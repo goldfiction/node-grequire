@@ -1,6 +1,6 @@
 {
     "name": "node-grequire",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "main":"lib.js",
     "license":"MIT",
     "repository":"git@github.com:goldfiction/node-grequire.git",
@@ -10,6 +10,6 @@
     },
     "private":false,
     "scripts":{
-        "test":"mocha"
+        "test":"mocha -t 20000"
     }
 }

@@ -1,10 +1,17 @@
 /**
  * Created by gli on 1/14/2014.
  */
+before(function(){
+    require('../lib.js');
+})
 
 it('should be able to require grequire module',function(done){
-    var mods=require(__dirname+'/../lib.js');
-    done();
+    try{
+      require('../lib.js');
+      done();
+    }catch(e){
+      done(e);
+    }
 });
 
 it('should be able to require ini',function(done){
@@ -12,7 +19,7 @@ it('should be able to require ini',function(done){
     var test=require(__dirname+'/test.ini')
     //console.log(test)
     //console.log(JSON.stringify(test) == JSON.stringify(shouldbe))
-    assert.equal(JSON.stringify(test) == JSON.stringify(shouldbe),true);
+    assert.equal(!!(JSON.stringify(test)==JSON.stringify(shouldbe)),true);
     done();
 });
 
