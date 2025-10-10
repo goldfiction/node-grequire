@@ -1,3 +1,6 @@
+rfr=require("rfr")
+rfr.setRoot(__dirname+"/../../");
+
 function includeFolder(folder, ext) {
     ext = ext || "js";
     // if ext manually set to "*", it loads all files
@@ -40,7 +43,7 @@ function includeFolder(folder, ext) {
 function globalRequire(name, value) {
     try {
         value = value || name;
-        var temp = require(value);
+        var temp = rfr("node_modules/"+value);
         //console.log(name + ":" + !!temp)
         if (temp) {
             if (!global[name]) {
@@ -68,7 +71,7 @@ function smartRequire(reqlist) {
             }
             else {
                 for (name in reqlist[i]) {
-                    value = reqlist[i][name];
+                    value = reqlist[i][value]||reqlist[i][name];
                     globalRequire(name, value);
                 }
             }
@@ -91,13 +94,13 @@ function requireList() {
     reqlist.push({'require-xml': ''});
 
     reqlist.push({'fs': ''});
-    //reqlist.push({'sys': ''});
+    reqlist.push({'sys': 'util'});
     reqlist.push({'S': 'string'});
 
     reqlist.push({'_': 'lodash'});
     reqlist.push({'_': 'underscore'});
-    reqlist.push({'underscore': 'underscore'});
-    reqlist.push({'async': 'async'});
+    reqlist.push({'underscore': ''});
+    reqlist.push({'async': ''});
     reqlist.push({'Q': 'q'});
 
     reqlist.push({'assert': ''});

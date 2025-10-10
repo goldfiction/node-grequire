@@ -1,12 +1,14 @@
 {
     "name": "node-grequire",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "main":"lib.js",
     "license":"MIT",
     "repository":"git@github.com:goldfiction/node-grequire.git",
     "dependencies":{
-        "require-ini":""
+        "require-ini":"",
+        "rfr":""
     },
+    "private":false,
     "scripts":{
         "test":"mocha"
     }
