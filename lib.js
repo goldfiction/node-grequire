@@ -45,7 +45,7 @@ function includeFolder(folder, ext) {
 function globalRequire(name, value) {
     try {
         starttime=Date.now();
-        if(value.trim().length===0)
+        if((!value)||value.trim().length===0)
           value=name;
         value = value || name;
         var temp1=null;
