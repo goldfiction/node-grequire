@@ -45,9 +45,11 @@ function includeFolder(folder, ext) {
 function globalRequire(name, value) {
     try {
         starttime=Date.now();
-        if((!value)||value.trim().length===0)
-          value=name;
+        //if((!value)||(value.trim().length===0))
+        //  value=name;
         value = value || name;
+        if(value == '')
+          value = name;
         var temp1=null;
         var temp2=null;
         try{
@@ -81,7 +83,7 @@ function smartRequire(reqlist) {
     var name, value;
     for (var i in reqlist) {
         try {
-            if (typeof reqlist[i] == "String") {
+            if ((typeof reqlist[i]).toLowerCase() == "string") {
                 name = value = reqlist[i];
                 globalRequire(name, value);
             }
