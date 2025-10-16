@@ -44,6 +44,7 @@ function includeFolder(folder, ext) {
 
 function globalRequire(name, value) {
     try {
+        starttime=Date.now();
         if(value.trim().length===0)
           value=name;
         value = value || name;
@@ -61,7 +62,9 @@ function globalRequire(name, value) {
         if (temp) {
             if (!!!global[name]) {
                 global[name] = temp;
-                console.log('loaded module: '+value);
+                endtime=Date.now();
+                elapse=endtime-starttime;
+                console.log('loaded module: '+value+" ("+elapse+" ms)");
             }
         }
     } catch (e) {
